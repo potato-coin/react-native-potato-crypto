@@ -1,0 +1,5 @@
+rootProject.name = 'example'
+include ':react-native-rn-bip39'
+project(':react-native-rn-bip39').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-rn-bip39/android')
+
+include ':app'
