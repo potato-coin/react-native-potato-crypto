@@ -145,7 +145,7 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
       buff.rewind();
       buff.put(input);
 
-      MnemonicResult result =  bip39EncodeBytes(buff, firstNonNull(language, LANG_DEFAULT), entropy));
+      MnemonicResult result = bip39EncodeBytes(buff, firstNonNull(language, LANG_DEFAULT), entropy);
       WritableMap out = Arguments.createMap();
       out.putString("status", result.getStatus());
       out.putString("mnemonic", result.getMnemonic());
