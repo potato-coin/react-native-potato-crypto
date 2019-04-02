@@ -15,7 +15,7 @@
  * @link https://github.com/edwardstock
  */
 
-jobjectArray Java_com_potato_bip32_RNRnBip39_bip39GetLanguages(JNIEnv *env, jclass) {
+jobjectArray Java_com_potato_bip39_RNRnBip39Module_bip39GetLanguages(JNIEnv *env, jclass) {
     const auto langs = minter::Bip39Mnemonic::getLanguages();
 
     jobjectArray
@@ -29,7 +29,7 @@ jobjectArray Java_com_potato_bip32_RNRnBip39_bip39GetLanguages(JNIEnv *env, jcla
     return langArr;
 }
 
-jobjectArray Java_com_potato_bip32_RNRnBip39_bip39GetWordsFromLanguage(
+jobjectArray Java_com_potato_bip39_RNRnBip39Module_bip39GetWordsFromLanguage(
     JNIEnv *env, jclass, jstring language_) {
     const char *language = env->GetStringUTFChars(language_, 0);
 
@@ -46,7 +46,7 @@ jobjectArray Java_com_potato_bip32_RNRnBip39_bip39GetWordsFromLanguage(
     env->ReleaseStringUTFChars(language_, language);
     return wordsArr;
 }
-jboolean Java_com_potato_bip32_RNRnBip39_bip39ValidateMnemonic(
+jboolean Java_com_potato_bip39_RNRnBip39Module_bip39ValidateMnemonic(
     JNIEnv *env,
     jclass,
     jstring mnemonic_,
@@ -61,7 +61,7 @@ jboolean Java_com_potato_bip32_RNRnBip39_bip39ValidateMnemonic(
     return static_cast<jboolean>(res ? 1 : 0);
 }
 
-jobject Java_com_potato_bip32_RNRnBip39_bip39EncodeBytes(
+jobject Java_com_potato_bip39_RNRnBip39Module_bip39EncodeBytes(
     JNIEnv *env, jclass, jobject input, jstring language_, jint entropy) {
 
     uint8_t *buffer = (uint8_t *) env->GetDirectBufferAddress(input);
@@ -85,7 +85,7 @@ jobject Java_com_potato_bip32_RNRnBip39_bip39EncodeBytes(
     return mrObj;
 }
 
-jobject Java_com_potato_bip32_RNRnBip39_bip39Generate(
+jobject Java_com_potato_bip39_RNRnBip39Module_bip39Generate(
     JNIEnv *env,
     jclass type,
     jstring language_,
@@ -109,7 +109,7 @@ jobject Java_com_potato_bip32_RNRnBip39_bip39Generate(
     return mrObj;
 }
 
-jbyteArray Java_com_potato_bip32_RNRnBip39_bip39WordsToSeed(
+jbyteArray Java_com_potato_bip39_RNRnBip39Module_bip39WordsToSeed(
     JNIEnv *env, jclass, jstring mnemonic_) {
     const char *mnemonic = env->GetStringUTFChars(mnemonic_, 0);
 
@@ -124,4 +124,19 @@ jbyteArray Java_com_potato_bip32_RNRnBip39_bip39WordsToSeed(
 
     return out;
 }
+
+jstring Java_com_potato_bip39_RNRnBip39Module_bip39WordsToSeedHex(
+        JNIEnv *env, jclass, jstring mnemonic_) {
+    const char *mnemonic = env->GetStringUTFChars(mnemonic_, 0);
+
+    std::string hex = minter::Bip39Mnemonic::wordsToSeedHex(mnemonic);
+
+    env->ReleaseStringUTFChars(mnemonic_, mnemonic);
+
+    jstring out = env->NewStringUTF(hex.c_str());
+
+    return out;
+}
+
+
 

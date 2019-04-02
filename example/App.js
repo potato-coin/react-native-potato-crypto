@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
-import { getLanguages } from 'react-native-rn-bip39';
+import { getLanguages, generate, entropy } from 'react-native-rn-bip39';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -19,13 +19,17 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
-  render() {
+  async render() {
+    const langs = await getLanguages();
+    const lang = langs[0];
+    const mnemonic = await generate('zhs', entropy.BIP39_ENTROPY_LEN_128);
+    console.log(mnemonic);
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
         <Text style={styles.instructions}>To get started, edit App.js</Text>
         <Text style={styles.instructions}>{instructions}</Text>
-        <Text style={styles.instructions}>{getLanguages()}</Text>
+        <Text style={styles.instructions}>{lang}</Text>
       </View>
     );
   }

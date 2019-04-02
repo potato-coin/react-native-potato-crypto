@@ -94,8 +94,16 @@ minter::Data minter::Bip39Mnemonic::decodeMnemonic(const char *mnemonic, const c
 }
 void minter::Bip39Mnemonic::wordsToSeed(const char *words, uint8_t *out64, size_t *writtenSz) {
     bip39_mnemonic_to_seed(words, nullptr, out64, 64, writtenSz);
-
 }
+
+std::string minter::Bip39Mnemonic::wordsToSeedHex(const char *words) {
+    minter::Data tmp(64);
+    size_t written;
+    wordsToSeed(words, tmp.data(), &written);
+
+    return bytesToHex(tmp.data(), written);
+}
+
 bool minter::Bip39Mnemonic::validateEntropy(size_t entropy) {
     switch (entropy) {
         case BIP39_ENTROPY_LEN_128:

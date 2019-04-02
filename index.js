@@ -3,39 +3,19 @@ import { NativeModules } from 'react-native';
 
 const { RNRnBip39 } = NativeModules;
 
-// export default RNRnBip39;
+export const getLanguages = () => RNRnBip39.getLanguages();
 
-function getLanguages() {
-    return RNRnBip39.getLanguages();
-}
+export const getWordsFromLanguage = (lang) => RNRnBip39.getWordsFromLanguage(lang);
 
-function getWordsFromLanguage(lang) {
-    return RNRnBip39.getWordsFromLanguage(lang);
-}
+export const generate = (lang, entropy) => RNRnBip39.generate(lang, entropy);
 
-function encodeBytes(input) {
-    return RNRnBip39.encodeBytes(input);
-}
+export const encodeBytes = (input, lang, entropy) =>  RNRnBip39.encodeBytes(input, lang, entropy);
 
-function generate() {
-    return RNRnBip39.generate();
-}
+export const validateMnemonic = (mnemonic, lang) => RNRnBip39.validateMnemonic(mnemonic, lang);
 
-function generate(lang, entropy) {
-    return RNRnBip39.generate(lang, entropy);
-}
+export const mnemonicToBip39Seed = (mnemonic) => RNRnBip39.mnemonicToBip39Seed(mnemonic);
 
-function encodeBytes(input, lang, entropy) {
-    return RNRnBip39.encodeBytes(input, lang, entropy);
-}
-
-function validateMnemonic(mnemonic, lang) {
-    return RNRnBip39.validateMnemonic(mnemonic, lang);
-}
-
-function mnemonicToBip39Seed(mnemonic) {
-    return RNRnBip39.mnemonicToBip39Seed(mnemonic);
-}
+export const mnemonicToBip39SeedHex = (mnemonic) => RNRnBip39.mnemonicToBip39SeedHex(mnemonic);
 
 export default {
     getLanguages,
@@ -43,5 +23,6 @@ export default {
     encodeBytes,
     generate,
     validateMnemonic,
-    mnemonicToBip39Seed
+    mnemonicToBip39Seed,
+    mnemonicToBip39SeedHex
 }

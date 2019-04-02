@@ -9,8 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rise-worlds/react-native-rn-bip39.git",
-    "baseUrl": "https://github.com/rise-worlds/react-native-rn-bip39"
+    "url": "git+https://github.com/potato-coin/rn-bip39.git",
+    "baseUrl": "https://github.com/potato-coin/rn-bip39"
   },
   "keywords": [
     "react-native"

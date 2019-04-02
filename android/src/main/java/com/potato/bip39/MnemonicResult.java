@@ -24,8 +24,8 @@ public final class MnemonicResult {
         return status == RNRnBip39Module.MR_OK;
     }
 
-    public byte[] toSeed() {
-        return RNRnBip39Module.mnemonicToBip39Seed(words);
+    public String toSeedHex() {
+        return RNRnBip39Module.bip39WordsToSeedHex(words);
     }
 
     public String getStatus() {

@@ -1,10 +1,15 @@
 
 package com.potato.bip39;
 
+import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.Promise;
+import com.facebook.react.bridge.WritableArray;
+import com.facebook.react.bridge.WritableMap;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import javax.annotation.Nonnull;
@@ -15,12 +20,13 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
     System.loadLibrary("native-lib");
   }
 
-  private static native Object bip39Generate(String language, int entropy);
-  private static native String[] bip39GetLanguages();
-  private static native String[] bip39GetWordsFromLanguage(String language);
-  private static native Object bip39EncodeBytes(ByteBuffer input, String language, int entropy);
-  private static native boolean bip39ValidateMnemonic(String mnemonic, String language);
-  private static native byte[] bip39WordsToSeed(String mnemonic);
+  public static native Object bip39Generate(String language, int entropy);
+  public static native String[] bip39GetLanguages();
+  public static native String[] bip39GetWordsFromLanguage(String language);
+  public static native Object bip39EncodeBytes(ByteBuffer input, String language, int entropy);
+  public static native boolean bip39ValidateMnemonic(String mnemonic, String language);
+  public static native byte[] bip39WordsToSeed(String mnemonic);
+  public static native String bip39WordsToSeedHex(String mnemonic);
 
   public static final int ENTROPY_LEN_128 = 16;
   public static final int ENTROPY_LEN_160 = 20;
@@ -63,37 +69,69 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public static String[] getLanguages() {
-    return bip39GetLanguages();
+  public void getLanguages(final Promise promise) {
+    try {
+      String[] returnArray = bip39GetLanguages();
+      WritableArray promiseArray = Arguments.createArray();
+      for(int i=0; i < returnArray.length; i++){
+        promiseArray.pushString(returnArray[i]);
+      }
+
+      promise.resolve(promiseArray);
+    }
+    catch(Exception e){
+      promise.reject(e);
+    }
   }
 
   @ReactMethod
-  public static String[] getWordsFromLanguage(@Nonnull String lang) {
-    checkNotNull(lang, "Language required");
-    return bip39GetWordsFromLanguage(lang);
+  public void getWordsFromLanguage(@Nonnull String lang, final Promise promise) {
+    try {
+      checkNotNull(lang, "Language required");
+      String[] returnArray = bip39GetWordsFromLanguage(lang);
+      WritableArray promiseArray = Arguments.createArray();
+      for(int i = 0; i < returnArray.length; i++){
+        promiseArray.pushString(returnArray[i]);
+      }
+
+      promise.resolve(promiseArray);
+    }
+    catch(Exception e){
+      promise.reject(e);
+    }
+  }
+
+//  @ReactMethod
+//  public MnemonicResult encodeBytes(@Nonnull byte[] input) {
+//    return encodeBytes(input, LANG_DEFAULT, ENTROPY_LEN_128);
+//  }
+//
+//  /**
+//   * Generates random mnemonic with PCGRandom for english language and entropy: 16 bytes
+//   * @return
+//   */
+//  @ReactMethod
+//  public MnemonicResult generate() {
+//    return generate(LANG_DEFAULT, ENTROPY_LEN_128);
+//  }
+
+  @ReactMethod
+  public void generate(String language, int entropy, final Promise promise) {
+    try {
+      MnemonicResult result = (MnemonicResult) bip39Generate(language, entropy);
+      WritableMap out = Arguments.createMap();
+      out.putString("status", result.getStatus());
+      out.putString("mnemonic", result.getMnemonic());
+      out.putString("seedhex", result.toSeedHex());
+      promise.resolve(out);
+    }
+    catch(Exception e){
+      promise.reject(e);
+    }
   }
 
   @ReactMethod
-  public static MnemonicResult encodeBytes(@Nonnull byte[] input) {
-    return encodeBytes(input, LANG_DEFAULT, ENTROPY_LEN_128);
-  }
-
-  /**
-   * Generates random mnemonic with PCGRandom for english language and entropy: 16 bytes
-   * @return
-   */
-  @ReactMethod
-  public static MnemonicResult generate() {
-    return generate(LANG_DEFAULT, ENTROPY_LEN_128);
-  }
-
-  @ReactMethod
-  public static MnemonicResult generate(String language, int entropy) {
-    return (MnemonicResult) bip39Generate(language, entropy);
-  }
-
-  @ReactMethod
-  public static MnemonicResult encodeBytes(@Nonnull byte[] input, String language, int entropy) {
+  public MnemonicResult encodeBytes(@Nonnull byte[] input, String language, int entropy) {
     checkNotNull(input, "Input data can't be null");
 
     ByteBuffer buff = nativeBuffer.get();
@@ -110,16 +148,43 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public static boolean validateMnemonic(String mnemonic, String language) {
-    if (mnemonic == null) {
-      return false;
+  public void validateMnemonic(String mnemonic, String language, final Promise promise) {
+    try {
+      boolean result = false;
+      if (mnemonic != null) {
+        result = bip39ValidateMnemonic(mnemonic, firstNonNull(language, LANG_DEFAULT));
+      }
+      promise.resolve(result);
     }
-
-    return bip39ValidateMnemonic(mnemonic, firstNonNull(language, LANG_DEFAULT));
+    catch(Exception e){
+      promise.reject(e);
+    }
   }
 
   @ReactMethod
-  public static byte[] mnemonicToBip39Seed(String mnemonic) {
-    return bip39WordsToSeed(mnemonic);
+  public void mnemonicToBip39Seed(String mnemonic, final Promise promise) {
+    try {
+      byte[] result = bip39WordsToSeed(mnemonic);
+      WritableArray promiseArray = Arguments.createArray();
+      for(int i = 0; i < result.length; i++){
+        promiseArray.pushInt(result[i]);
+      }
+
+      promise.resolve(result);
+    }
+    catch(Exception e){
+      promise.reject(e);
+    }
+  }
+
+  @ReactMethod
+  public void mnemonicToBip39SeedHex(String mnemonic, final Promise promise) {
+    try {
+      String result = bip39WordsToSeedHex(mnemonic);
+      promise.resolve(result);
+    }
+    catch(Exception e){
+      promise.reject(e);
+    }
   }
 }

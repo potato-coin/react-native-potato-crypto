@@ -10,7 +10,7 @@
   "dependencies": {
     "react": "16.8.3",
     "react-native": "0.59.2",
-    "react-native-rn-bip39": "file:../"
+    "react-native-rn-bip39": "git+https://github.com/potato-coin/rn-bip39.git"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",

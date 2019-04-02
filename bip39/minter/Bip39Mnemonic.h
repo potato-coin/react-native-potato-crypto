@@ -40,6 +40,7 @@ class Bip39Mnemonic {
                                       size_t entropy = BIP39_ENTROPY_LEN_128);
     static Data decodeMnemonic(const char *mnemonic, const char *lang, size_t entropy = BIP39_ENTROPY_LEN_128);
     static void wordsToSeed(const char *words, uint8_t *out64, size_t *writtenSz);
+    static std::string wordsToSeedHex(const char *words);
     static bool validateWords(const char* lang, const char* mnemonic);
 
  private:

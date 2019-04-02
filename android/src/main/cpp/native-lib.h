@@ -18,27 +18,27 @@ extern "C" {
  * Method:    getLanguages
  * Signature: ()[Ljava/lang/String;
  */
-JNIEXPORT jobjectArray JNICALL Java_com_potato_bip32_RNRnBip39_bip39GetLanguages
+JNIEXPORT jobjectArray JNICALL Java_com_potato_bip39_RNRnBip39Module_bip39GetLanguages
     (JNIEnv *, jclass);
 
 JNIEXPORT jobjectArray JNICALL
-Java_com_potato_bip32_RNRnBip39_bip39GetWordsFromLanguage(
+Java_com_potato_bip39_RNRnBip39Module_bip39GetWordsFromLanguage(
     JNIEnv *env, jclass type, jstring language_);
 
 JNIEXPORT jobject JNICALL
-Java_com_potato_bip32_RNRnBip39_bip39EncodeBytes(
+Java_com_potato_bip39_RNRnBip39Module_bip39EncodeBytes(
     JNIEnv *env, jclass type, jobject input, jstring language_, jint entropy);
 
 JNIEXPORT jboolean JNICALL
-Java_com_potato_bip32_RNRnBip39_bip39ValidateMnemonic(
+Java_com_potato_bip39_RNRnBip39Module_bip39ValidateMnemonic(
     JNIEnv *env, jclass, jstring mnemonic_, jstring language_);
 
 JNIEXPORT jbyteArray JNICALL
-Java_com_potato_bip32_RNRnBip39_bip39WordsToSeed(
+Java_com_potato_bip39_RNRnBip39Module_bip39WordsToSeed(
     JNIEnv *env, jclass type, jstring mnemonic_);
 
 JNIEXPORT jobject JNICALL
-Java_com_potato_bip32_RNRnBip39_bip39Generate(
+Java_com_potato_bip39_RNRnBip39Module_bip39Generate(
     JNIEnv *env, jclass type, jstring language_, jint entropy);
 
 #ifdef __cplusplus
