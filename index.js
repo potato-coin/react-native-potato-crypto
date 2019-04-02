@@ -17,6 +17,16 @@ export const mnemonicToBip39Seed = (mnemonic) => RNRnBip39.mnemonicToBip39Seed(m
 
 export const mnemonicToBip39SeedHex = (mnemonic) => RNRnBip39.mnemonicToBip39SeedHex(mnemonic);
 
+export const entropy = {
+    BIP39_ENTROPY_LEN_128 : 16,
+    BIP39_ENTROPY_LEN_160 : 20,
+    BIP39_ENTROPY_LEN_192 : 24,
+    BIP39_ENTROPY_LEN_224 : 28,
+    BIP39_ENTROPY_LEN_256 : 32,
+    BIP39_ENTROPY_LEN_288 : 36,
+    BIP39_ENTROPY_LEN_320 : 40,
+}
+
 export default {
     getLanguages,
     getWordsFromLanguage,
@@ -24,5 +34,6 @@ export default {
     generate,
     validateMnemonic,
     mnemonicToBip39Seed,
-    mnemonicToBip39SeedHex
+    mnemonicToBip39SeedHex,
+    entropy
 }

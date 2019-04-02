@@ -129,7 +129,10 @@ jstring Java_com_potato_bip39_RNRnBip39Module_bip39WordsToSeedHex(
         JNIEnv *env, jclass, jstring mnemonic_) {
     const char *mnemonic = env->GetStringUTFChars(mnemonic_, 0);
 
-    std::string hex = minter::Bip39Mnemonic::wordsToSeedHex(mnemonic);
+    minter::Data tmp(64);
+    size_t written;
+    minter::Bip39Mnemonic::wordsToSeed(mnemonic, tmp.data(), &written);
+    std::string hex = minter::bytesToHex(tmp.data(), written);
 
     env->ReleaseStringUTFChars(mnemonic_, mnemonic);
 

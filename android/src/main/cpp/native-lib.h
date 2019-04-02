@@ -37,6 +37,10 @@ JNIEXPORT jbyteArray JNICALL
 Java_com_potato_bip39_RNRnBip39Module_bip39WordsToSeed(
     JNIEnv *env, jclass type, jstring mnemonic_);
 
+JNIEXPORT jstring JNICALL
+Java_com_potato_bip39_RNRnBip39Module_bip39WordsToSeedHex(
+        JNIEnv *env, jclass type, jstring mnemonic_);
+
 JNIEXPORT jobject JNICALL
 Java_com_potato_bip39_RNRnBip39Module_bip39Generate(
     JNIEnv *env, jclass type, jstring language_, jint entropy);

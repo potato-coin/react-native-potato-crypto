@@ -79,7 +79,7 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
 
       promise.resolve(promiseArray);
     }
-    catch(Exception e){
+    catch(Exception e) {
       promise.reject(e);
     }
   }
@@ -96,7 +96,7 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
 
       promise.resolve(promiseArray);
     }
-    catch(Exception e){
+    catch(Exception e) {
       promise.reject(e);
     }
   }
@@ -125,26 +125,36 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
       out.putString("seedhex", result.toSeedHex());
       promise.resolve(out);
     }
-    catch(Exception e){
+    catch(Exception e) {
       promise.reject(e);
     }
   }
 
   @ReactMethod
-  public MnemonicResult encodeBytes(@Nonnull byte[] input, String language, int entropy) {
-    checkNotNull(input, "Input data can't be null");
+  public MnemonicResult encodeBytes(@Nonnull byte[] input, String language, int entropy, final Promise promise) {
+    try {
+      checkNotNull(input, "Input data can't be null");
 
-    ByteBuffer buff = nativeBuffer.get();
-    if (buff == null || buff.capacity() < input.length) {
-      buff = ByteBuffer.allocateDirect(input.length);
-      buff.order(ByteOrder.BIG_ENDIAN);
-      nativeBuffer.set(buff);
+      ByteBuffer buff = nativeBuffer.get();
+      if (buff == null || buff.capacity() < input.length) {
+        buff = ByteBuffer.allocateDirect(input.length);
+        buff.order(ByteOrder.BIG_ENDIAN);
+        nativeBuffer.set(buff);
+      }
+
+      buff.rewind();
+      buff.put(input);
+
+      MnemonicResult result =  bip39EncodeBytes(buff, firstNonNull(language, LANG_DEFAULT), entropy));
+      WritableMap out = Arguments.createMap();
+      out.putString("status", result.getStatus());
+      out.putString("mnemonic", result.getMnemonic());
+      out.putString("seedhex", result.toSeedHex());
+      promise.resolve(out);
     }
-
-    buff.rewind();
-    buff.put(input);
-
-    return ((MnemonicResult) bip39EncodeBytes(buff, firstNonNull(language, LANG_DEFAULT), entropy));
+    catch(Exception e) {
+      promise.reject(e);
+    }
   }
 
   @ReactMethod
@@ -156,7 +166,7 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
       }
       promise.resolve(result);
     }
-    catch(Exception e){
+    catch(Exception e) {
       promise.reject(e);
     }
   }
@@ -172,7 +182,7 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
 
       promise.resolve(result);
     }
-    catch(Exception e){
+    catch(Exception e) {
       promise.reject(e);
     }
   }
@@ -183,7 +193,7 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
       String result = bip39WordsToSeedHex(mnemonic);
       promise.resolve(result);
     }
-    catch(Exception e){
+    catch(Exception e) {
       promise.reject(e);
     }
   }
