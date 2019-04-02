@@ -9,12 +9,12 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   RNRnBip39
                    DESC
-  s.homepage     = "https://github.com/author/RNRnBip39"
+  s.homepage     = "https://github.com/potato-coin/RNRnBip39"
   s.license      = "MIT"
   # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author       = { "author" => "author@domain.cn" }
+  s.author       = { "author" => "rise.worlds@outlook.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/author/RNRnBip39.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/potato-coin/RNRnBip39.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m}"
   s.requires_arc = true

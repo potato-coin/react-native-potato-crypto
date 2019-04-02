@@ -1,4 +1,3 @@
-
 {
   "name": "react-native-rn-bip39",
   "title": "React Native Rn Bip39",
@@ -20,17 +19,16 @@
     "name": "rise",
     "email": "rise.worlds@outlook.com"
   },
+  "files": ["android/", "ios/", "bip39/", "crypto/", ".gitattributes", ".gitignore", "index.js", "package.json", "README.md", "RNRnBip39.podspec"],
   "license": "Apache-2.0",
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
-    
     "react": "16.0.0-alpha.6",
     "react-native": "^0.44.1"
   },
   "devDependencies": {
-    
     "react": "16.0.0-alpha.6",
-    "react-native": "^0.44.1" 
+    "react-native": "^0.44.1"
   }
 }
