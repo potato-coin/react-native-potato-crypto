@@ -39,7 +39,10 @@
 ```javascript
 import RNRnBip39 from 'react-native-rn-bip39';
 
-// TODO: What to do with the module?
-RNRnBip39;
+const langs = await RNRnBip39.getLanguages();
+const mnemonic = await RNRnBip39.generate('zhs', entropy.BIP39_ENTROPY_LEN_128);
+const isValidate = await RNRnBip39.validateMnemonic(mnemonic.mnemonic, 'zhs');
+const seedHex = await RNRnBip39.mnemonicToBip39SeedHex(mnemonic.mnemonic);
+
 ```
   

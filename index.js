@@ -23,11 +23,22 @@ export const entropy = {
     BIP39_ENTROPY_LEN_320 : 40,
 }
 
+export const lang = {
+    en:"en",
+    es:"es",
+    fr:"fr",
+    it:"it",
+    jp:"jp",
+    zhs:"zhs",
+    zht:"zht"
+}
+
 export default {
     getLanguages,
     getWordsFromLanguage,
     generate,
     validateMnemonic,
     mnemonicToBip39SeedHex,
-    entropy
+    entropy,
+    lang
 }
