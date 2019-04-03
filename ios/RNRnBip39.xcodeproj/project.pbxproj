@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3E7B58A1CC2AC0600A0062D /* RNRnBip39.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNRnBip39.m */; };
+		5A1DF312225486C100E981D3 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A1DF311225486C100E981D3 /* libc++.tbd */; };
+		B3E7B58A1CC2AC0600A0062D /* RNRnBip39.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNRnBip39.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,8 +25,11 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNRnBip39.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNRnBip39.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A1DF30E22545F1A00E981D3 /* crypto */ = {isa = PBXFileReference; lastKnownFileType = folder; name = crypto; path = ../crypto; sourceTree = "<group>"; };
+		5A1DF30F22545F1A00E981D3 /* bip39 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = bip39; path = ../bip39; sourceTree = "<group>"; };
+		5A1DF311225486C100E981D3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		B3E7B5881CC2AC0600A0062D /* RNRnBip39.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNRnBip39.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* RNRnBip39.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNRnBip39.m; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* RNRnBip39.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RNRnBip39.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A1DF312225486C100E981D3 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,10 +55,21 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				5A1DF30F22545F1A00E981D3 /* bip39 */,
+				5A1DF30E22545F1A00E981D3 /* crypto */,
 				B3E7B5881CC2AC0600A0062D /* RNRnBip39.h */,
-				B3E7B5891CC2AC0600A0062D /* RNRnBip39.m */,
+				B3E7B5891CC2AC0600A0062D /* RNRnBip39.mm */,
 				134814211AA4EA7D00B7C361 /* Products */,
+				5A1DF310225486C100E981D3 /* Frameworks */,
 			);
+			sourceTree = "<group>";
+		};
+		5A1DF310225486C100E981D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5A1DF311225486C100E981D3 /* libc++.tbd */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +111,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -112,7 +129,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B3E7B58A1CC2AC0600A0062D /* RNRnBip39.m in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* RNRnBip39.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,11 +232,16 @@
 		58B511F01A9E6C8500147676 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				HEADER_SEARCH_PATHS = (
-				"$(inherited)",
+					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../../react-native/Libraries/**",
+					"$(SRCROOT)/../crypto/**",
+					"$(SRCROOT)/../bip39/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
@@ -231,11 +253,16 @@
 		58B511F11A9E6C8500147676 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../../../React/**",
 					"$(SRCROOT)/../../react-native/React/**",
+					"$(SRCROOT)/../../react-native/Libraries/**",
+					"$(SRCROOT)/../crypto/**",
+					"$(SRCROOT)/../bip39/**",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";

@@ -130,32 +130,32 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
     }
   }
 
-  @ReactMethod
-  public void encodeBytes(@Nonnull byte[] input, String language, int entropy, final Promise promise) {
-    try {
-      checkNotNull(input, "Input data can't be null");
-
-      ByteBuffer buff = nativeBuffer.get();
-      if (buff == null || buff.capacity() < input.length) {
-        buff = ByteBuffer.allocateDirect(input.length);
-        buff.order(ByteOrder.BIG_ENDIAN);
-        nativeBuffer.set(buff);
-      }
-
-      buff.rewind();
-      buff.put(input);
-
-      MnemonicResult result = (MnemonicResult)bip39EncodeBytes(buff, firstNonNull(language, LANG_DEFAULT), entropy);
-      WritableMap out = Arguments.createMap();
-      out.putString("status", result.getStatus());
-      out.putString("mnemonic", result.getMnemonic());
-      out.putString("seedhex", result.toSeedHex());
-      promise.resolve(out);
-    }
-    catch(Exception e) {
-      promise.reject(e);
-    }
-  }
+  // @ReactMethod
+  // public void encodeBytes(@Nonnull byte[] input, String language, int entropy, final Promise promise) {
+  //   try {
+  //     checkNotNull(input, "Input data can't be null");
+  //
+  //     ByteBuffer buff = nativeBuffer.get();
+  //     if (buff == null || buff.capacity() < input.length) {
+  //       buff = ByteBuffer.allocateDirect(input.length);
+  //       buff.order(ByteOrder.BIG_ENDIAN);
+  //       nativeBuffer.set(buff);
+  //     }
+  //
+  //     buff.rewind();
+  //     buff.put(input);
+  //
+  //     MnemonicResult result = (MnemonicResult)bip39EncodeBytes(buff, firstNonNull(language, LANG_DEFAULT), entropy);
+  //     WritableMap out = Arguments.createMap();
+  //     out.putString("status", result.getStatus());
+  //     out.putString("mnemonic", result.getMnemonic());
+  //     out.putString("seedhex", result.toSeedHex());
+  //     promise.resolve(out);
+  //   }
+  //   catch(Exception e) {
+  //     promise.reject(e);
+  //   }
+  // }
 
   @ReactMethod
   public void validateMnemonic(String mnemonic, String language, final Promise promise) {
@@ -171,21 +171,21 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
     }
   }
 
-  @ReactMethod
-  public void mnemonicToBip39Seed(String mnemonic, final Promise promise) {
-    try {
-      byte[] result = bip39WordsToSeed(mnemonic);
-      WritableArray promiseArray = Arguments.createArray();
-      for(int i = 0; i < result.length; i++){
-        promiseArray.pushInt(result[i]);
-      }
-
-      promise.resolve(result);
-    }
-    catch(Exception e) {
-      promise.reject(e);
-    }
-  }
+  // @ReactMethod
+  // public void mnemonicToBip39Seed(String mnemonic, final Promise promise) {
+  //   try {
+  //     byte[] result = bip39WordsToSeed(mnemonic);
+  //     WritableArray promiseArray = Arguments.createArray();
+  //     for(int i = 0; i < result.length; i++){
+  //       promiseArray.pushInt(result[i]);
+  //     }
+  //
+  //     promise.resolve(result);
+  //   }
+  //   catch(Exception e) {
+  //     promise.reject(e);
+  //   }
+  // }
 
   @ReactMethod
   public void mnemonicToBip39SeedHex(String mnemonic, final Promise promise) {
