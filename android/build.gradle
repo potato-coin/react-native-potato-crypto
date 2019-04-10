@@ -36,6 +36,10 @@ android {
     lintOptions {
         abortOnError false
     }
+    packagingOptions {
+        pickFirst 'lib/x86_64/libjsc.so'
+        pickFirst 'lib/arm64-v8a/libjsc.so'
+    }
     externalNativeBuild {
         cmake {
             path "src/main/cpp/CMakeLists.txt"
