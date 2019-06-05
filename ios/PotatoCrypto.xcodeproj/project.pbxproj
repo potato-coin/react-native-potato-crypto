@@ -49,7 +49,7 @@
 		5A1DF4962254AB2000E981D3 /* japanese.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DF4642254AB2000E981D3 /* japanese.cpp */; };
 		5A1DF4972254AB2000E981D3 /* chinese_traditional.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DF4662254AB2000E981D3 /* chinese_traditional.cpp */; };
 		5A1DF4982254AB2000E981D3 /* french.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DF46A2254AB2000E981D3 /* french.cpp */; };
-		B3E7B58A1CC2AC0600A0062D /* RNRnBip39.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNRnBip39.mm */; };
+		B3E7B58A1CC2AC0600A0062D /* PotatoCrypto.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* PotatoCrypto.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,7 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		134814201AA4EA6300B7C361 /* libRNRnBip39.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNRnBip39.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		134814201AA4EA6300B7C361 /* libPotatoCrypto.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPotatoCrypto.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A1DF311225486C100E981D3 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		5A1DF3FB2254AB2000E981D3 /* groestl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groestl.h; sourceTree = "<group>"; };
 		5A1DF3FC2254AB2000E981D3 /* ripemd160.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd160.h; sourceTree = "<group>"; };
@@ -171,8 +171,8 @@
 		5A1DF46B2254AB2000E981D3 /* aes-cbc-pkcs7.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "aes-cbc-pkcs7.txt"; sourceTree = "<group>"; };
 		5A1DF46C2254AB2000E981D3 /* ecdsa_secp256k1_vectors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ecdsa_secp256k1_vectors.txt; sourceTree = "<group>"; };
 		5A1DF46D2254AB2000E981D3 /* address_vectors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = address_vectors.txt; sourceTree = "<group>"; };
-		B3E7B5881CC2AC0600A0062D /* RNRnBip39.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNRnBip39.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* RNRnBip39.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = RNRnBip39.mm; sourceTree = "<group>"; };
+		B3E7B5881CC2AC0600A0062D /* PotatoCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PotatoCrypto.h; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* PotatoCrypto.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PotatoCrypto.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,7 +190,7 @@
 		134814211AA4EA7D00B7C361 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				134814201AA4EA6300B7C361 /* libRNRnBip39.a */,
+				134814201AA4EA6300B7C361 /* libPotatoCrypto.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,8 +200,8 @@
 			children = (
 				5A1DF4352254AB2000E981D3 /* bip39 */,
 				5A1DF3FA2254AB2000E981D3 /* crypto */,
-				B3E7B5881CC2AC0600A0062D /* RNRnBip39.h */,
-				B3E7B5891CC2AC0600A0062D /* RNRnBip39.mm */,
+				B3E7B5881CC2AC0600A0062D /* PotatoCrypto.h */,
+				B3E7B5891CC2AC0600A0062D /* PotatoCrypto.mm */,
 				134814211AA4EA7D00B7C361 /* Products */,
 				5A1DF310225486C100E981D3 /* Frameworks */,
 			);
@@ -370,9 +370,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* RNRnBip39 */ = {
+		58B511DA1A9E6C8500147676 /* PotatoCrypto */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNRnBip39" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "PotatoCrypto" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -382,9 +382,9 @@
 			);
 			dependencies = (
 			);
-			name = RNRnBip39;
+			name = PotatoCrypto;
 			productName = RCTDataManager;
-			productReference = 134814201AA4EA6300B7C361 /* libRNRnBip39.a */;
+			productReference = 134814201AA4EA6300B7C361 /* libPotatoCrypto.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -401,7 +401,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNRnBip39" */;
+			buildConfigurationList = 58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "PotatoCrypto" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -414,7 +414,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58B511DA1A9E6C8500147676 /* RNRnBip39 */,
+				58B511DA1A9E6C8500147676 /* PotatoCrypto */,
 			);
 		};
 /* End PBXProject section */
@@ -458,7 +458,7 @@
 				5A1DF47F2254AB2000E981D3 /* blake256.cpp in Sources */,
 				5A1DF48E2254AB2000E981D3 /* Bip39Mnemonic.cpp in Sources */,
 				5A1DF46F2254AB2000E981D3 /* hasher.cpp in Sources */,
-				B3E7B58A1CC2AC0600A0062D /* RNRnBip39.mm in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* PotatoCrypto.mm in Sources */,
 				5A1DF4922254AB2000E981D3 /* chinese_simplified.cpp in Sources */,
 				5A1DF4772254AB2000E981D3 /* rfc6979.cpp in Sources */,
 				5A1DF4872254AB2000E981D3 /* hmac_sha512.cpp in Sources */,
@@ -581,7 +581,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = RNRnBip39;
+				PRODUCT_NAME = PotatoCrypto;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -602,7 +602,7 @@
 				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = RNRnBip39;
+				PRODUCT_NAME = PotatoCrypto;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -610,7 +610,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "RNRnBip39" */ = {
+		58B511D61A9E6C8500147676 /* Build configuration list for PBXProject "PotatoCrypto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511ED1A9E6C8500147676 /* Debug */,
@@ -619,7 +619,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNRnBip39" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "PotatoCrypto" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,

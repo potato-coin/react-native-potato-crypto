@@ -1,10 +1,10 @@
 
-#import "RNRnBip39.h"
+#import "PotatoCrypto.h"
 
 #include "minter/Bip39Mnemonic.h"
 using namespace minter;
 
-@implementation RNRnBip39
+@implementation PotatoCrypto
 
 - (dispatch_queue_t)methodQueue
 {

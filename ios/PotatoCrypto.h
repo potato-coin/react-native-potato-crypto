@@ -5,7 +5,7 @@
 #import "Base/RCTBridgeModule.h"
 #endif
 
-@interface RNRnBip39 : NSObject <RCTBridgeModule>
+@interface PotatoCrypto : NSObject <RCTBridgeModule>
 
 @end
   

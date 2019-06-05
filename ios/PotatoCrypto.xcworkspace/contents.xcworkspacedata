@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:RNRnBip39.xcodeproj">
+      location = "group:PotatoCrypto.xcodeproj">
    </FileRef>
 </Workspace>
   

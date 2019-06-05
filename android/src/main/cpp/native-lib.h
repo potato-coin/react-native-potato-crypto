@@ -18,31 +18,31 @@ extern "C" {
  * Method:    getLanguages
  * Signature: ()[Ljava/lang/String;
  */
-JNIEXPORT jobjectArray JNICALL Java_com_potato_bip39_RNRnBip39Module_bip39GetLanguages
+JNIEXPORT jobjectArray JNICALL Java_com_potato_crypto_PotatoCryptoModule_bip39GetLanguages
     (JNIEnv *, jclass);
 
 JNIEXPORT jobjectArray JNICALL
-Java_com_potato_bip39_RNRnBip39Module_bip39GetWordsFromLanguage(
+Java_com_potato_crypto_PotatoCryptoModule_bip39GetWordsFromLanguage(
     JNIEnv *env, jclass type, jstring language_);
 
 JNIEXPORT jobject JNICALL
-Java_com_potato_bip39_RNRnBip39Module_bip39EncodeBytes(
+Java_com_potato_crypto_PotatoCryptoModule_bip39EncodeBytes(
     JNIEnv *env, jclass type, jobject input, jstring language_, jint entropy);
 
 JNIEXPORT jboolean JNICALL
-Java_com_potato_bip39_RNRnBip39Module_bip39ValidateMnemonic(
+Java_com_potato_crypto_PotatoCryptoModule_bip39ValidateMnemonic(
     JNIEnv *env, jclass, jstring mnemonic_, jstring language_);
 
 JNIEXPORT jbyteArray JNICALL
-Java_com_potato_bip39_RNRnBip39Module_bip39WordsToSeed(
+Java_com_potato_crypto_PotatoCryptoModule_bip39WordsToSeed(
     JNIEnv *env, jclass type, jstring mnemonic_);
 
 JNIEXPORT jstring JNICALL
-Java_com_potato_bip39_RNRnBip39Module_bip39WordsToSeedHex(
+Java_com_potato_crypto_PotatoCryptoModule_bip39WordsToSeedHex(
         JNIEnv *env, jclass type, jstring mnemonic_);
 
 JNIEXPORT jobject JNICALL
-Java_com_potato_bip39_RNRnBip39Module_bip39Generate(
+Java_com_potato_crypto_PotatoCryptoModule_bip39Generate(
     JNIEnv *env, jclass type, jstring language_, jint entropy);
 
 #ifdef __cplusplus

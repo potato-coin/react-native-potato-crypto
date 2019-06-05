@@ -1,17 +1,17 @@
 
 import { NativeModules } from 'react-native';
 
-const { RNRnBip39 } = NativeModules;
+const { PotatoCrypto } = NativeModules;
 
-export const getLanguages = () => RNRnBip39.getLanguages();
+export const getLanguages = () => PotatoCrypto.getLanguages();
 
-export const getWordsFromLanguage = (lang) => RNRnBip39.getWordsFromLanguage(lang);
+export const getWordsFromLanguage = (lang) => PotatoCrypto.getWordsFromLanguage(lang);
 
-export const generate = (lang, entropy) => RNRnBip39.generate(lang, entropy);
+export const generate = (lang, entropy) => PotatoCrypto.generate(lang, entropy);
 
-export const validateMnemonic = (mnemonic, lang) => RNRnBip39.validateMnemonic(mnemonic, lang);
+export const validateMnemonic = (mnemonic, lang) => PotatoCrypto.validateMnemonic(mnemonic, lang);
 
-export const mnemonicToBip39SeedHex = (mnemonic) => RNRnBip39.mnemonicToBip39SeedHex(mnemonic);
+export const mnemonicToBip39SeedHex = (mnemonic) => PotatoCrypto.mnemonicToBip39SeedHex(mnemonic);
 
 export const entropy = {
     BIP39_ENTROPY_LEN_128 : 16,

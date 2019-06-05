@@ -1,6 +1,6 @@
 {
-  "name": "react-native-rn-bip39",
-  "title": "React Native Rn Bip39",
+  "name": "react-native-potato-crypto",
+  "title": "React Native Potato Crypto",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,10 @@
     "baseUrl": "https://github.com/potato-coin/rn-bip39"
   },
   "keywords": [
-    "react-native"
+    "react-native",
+    "potato",
+    "crypto",
+    "bip39"
   ],
   "author": {
     "name": "rise",
@@ -29,7 +32,7 @@
     "index.js",
     "package.json",
     "README.md",
-    "RNRnBip39.podspec"
+    "PotatoCrypto.podspec"
   ],
   "license": "Apache-2.0",
   "licenseFilename": "LICENSE",

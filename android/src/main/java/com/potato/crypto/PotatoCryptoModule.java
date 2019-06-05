@@ -1,5 +1,5 @@
 
-package com.potato.bip39;
+package com.potato.crypto;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReactApplicationContext;
@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import javax.annotation.Nonnull;
 
-public class RNRnBip39Module extends ReactContextBaseJavaModule {
+public class PotatoCryptoModule extends ReactContextBaseJavaModule {
 
   static {
     System.loadLibrary("native-lib");
@@ -44,14 +44,14 @@ public class RNRnBip39Module extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
 
-  public RNRnBip39Module(ReactApplicationContext reactContext) {
+  public PotatoCryptoModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
   }
 
   @Override
   public String getName() {
-    return "RNRnBip39";
+    return "PotatoCrypto";
   }
 
   @Nonnull

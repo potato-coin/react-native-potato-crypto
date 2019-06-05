@@ -3,11 +3,11 @@ require "json"
 package = JSON.parse(File.read(File.join(__dir__, "package.json")))
 
 Pod::Spec.new do |s|
-  s.name         = "RNRnBip39"
+  s.name         = "PotatoCrypto"
   s.version      = package["version"]
   s.summary      = package["description"]
   s.description  = <<-DESC
-                  RNRnBip39
+                  PotatoCrypto
                    DESC
   s.homepage     = "https://github.com/potato-coin/rn-bip39"
   s.license      = "MIT"
