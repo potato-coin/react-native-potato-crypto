@@ -1,7 +1,7 @@
 {
   "name": "react-native-potato-crypto",
   "title": "React Native Potato Crypto",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -9,8 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/potato-coin/rn-bip39.git",
-    "baseUrl": "https://github.com/potato-coin/rn-bip39"
+    "url": "git+https://github.com/potato-coin/react-native-potato-crypto.git",
+    "baseUrl": "https://github.com/potato-coin/react-native-potato-crypto"
   },
   "keywords": [
     "react-native",
@@ -38,11 +38,11 @@
   "licenseFilename": "LICENSE",
   "readmeFilename": "README.md",
   "peerDependencies": {
-    "react": "16.8.3",
-    "react-native": "0.59.4"
+    "react": "16.6.3",
+    "react-native": "0.57.8"
   },
   "devDependencies": {
-    "react": "16.8.3",
-    "react-native": "0.59.4"
+    "react": "16.6.3",
+    "react-native": "0.57.8"
   }
 }
