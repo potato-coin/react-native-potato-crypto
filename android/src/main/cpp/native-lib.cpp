@@ -72,7 +72,7 @@ jobject Java_com_potato_crypto_PotatoCryptoModule_bip39EncodeBytes(
     );
     env->ReleaseStringUTFChars(language_, language);
 
-    jclass mrClass = env->FindClass("com/potato/bip39/MnemonicResult");
+    jclass mrClass = env->FindClass("com/potato/crypto/MnemonicResult");
     jobject mrObj = env->AllocObject(mrClass);
     env->SetIntField(mrObj, env->GetFieldID(mrClass, "status", "I"), out.status);
     env->SetIntField(mrObj, env->GetFieldID(mrClass, "len", "I"), static_cast<jint>(out.len));
@@ -96,7 +96,7 @@ jobject Java_com_potato_crypto_PotatoCryptoModule_bip39Generate(
 
     env->ReleaseStringUTFChars(language_, language);
 
-    jclass mrClass = env->FindClass("com/potato/bip39/MnemonicResult");
+    jclass mrClass = env->FindClass("com/potato/crypto/MnemonicResult");
     jobject mrObj = env->AllocObject(mrClass);
     env->SetIntField(mrObj, env->GetFieldID(mrClass, "status", "I"), out.status);
     env->SetIntField(mrObj, env->GetFieldID(mrClass, "len", "I"), static_cast<jint>(out.len));
