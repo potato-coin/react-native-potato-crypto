@@ -6,16 +6,15 @@ Pod::Spec.new do |s|
   s.name         = "PotatoCrypto"
   s.version      = package["version"]
   s.summary      = package["description"]
-  s.description  = <<-DESC
-                  PotatoCrypto
-                   DESC
-  s.homepage     = "https://github.com/potato-coin/rn-bip39"
+  s.homepage     = "https://github.com/potato-coin/react-native-potato-crypto"
   s.license      = "MIT"
-  # s.license    = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author       = { "author" => "rise.worlds@outlook.com" }
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/potato-coin/rn-bip39.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/potato-coin/react-native-potato-crypto.git", :tag => "#{s.version}" }
 
+  s.ios.deployment_target = "8.0"
+  s.tvos.deployment_target = "9.0"
+  
   s.source_files = "ios/**/*.{h,m}"
   s.requires_arc = true
 
