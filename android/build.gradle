@@ -41,7 +41,7 @@ android {
         externalNativeBuild {
             cmake {
                 cppFlags "-std=c++14"
-                arguments '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=c++_shared'//, "-DANDROID_CPP_FEATURES=rtti exceptions", "-DLOCAL_CPP_FEATURES := rtti features", "-DANDROID_ARM_MODE=arm"
+                //arguments '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=c++_shared'//, "-DANDROID_CPP_FEATURES=rtti exceptions", "-DLOCAL_CPP_FEATURES := rtti features", "-DANDROID_ARM_MODE=arm"
             }
         }
         ndk {
