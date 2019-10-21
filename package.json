@@ -1,7 +1,7 @@
 {
   "name": "react-native-potato-crypto",
   "title": "React Native Potato Crypto",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "potato crypto for react-native",
   "main": "index.js",
   "scripts": {
