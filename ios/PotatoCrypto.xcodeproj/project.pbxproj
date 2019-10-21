@@ -49,7 +49,7 @@
 		5A1DF4962254AB2000E981D3 /* japanese.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DF4642254AB2000E981D3 /* japanese.cpp */; };
 		5A1DF4972254AB2000E981D3 /* chinese_traditional.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DF4662254AB2000E981D3 /* chinese_traditional.cpp */; };
 		5A1DF4982254AB2000E981D3 /* french.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1DF46A2254AB2000E981D3 /* french.cpp */; };
-		B3E7B58A1CC2AC0600A0062D /* PotatoCrypto.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* PotatoCrypto.m */; };
+		B3E7B58A1CC2AC0600A0062D /* PotatoCrypto.mm in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* PotatoCrypto.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -172,7 +172,7 @@
 		5A1DF46C2254AB2000E981D3 /* ecdsa_secp256k1_vectors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ecdsa_secp256k1_vectors.txt; sourceTree = "<group>"; };
 		5A1DF46D2254AB2000E981D3 /* address_vectors.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = address_vectors.txt; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* PotatoCrypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PotatoCrypto.h; sourceTree = "<group>"; };
-		B3E7B5891CC2AC0600A0062D /* PotatoCrypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PotatoCrypto.m; sourceTree = "<group>"; };
+		B3E7B5891CC2AC0600A0062D /* PotatoCrypto.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PotatoCrypto.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,7 +201,7 @@
 				5A1DF4352254AB2000E981D3 /* bip39 */,
 				5A1DF3FA2254AB2000E981D3 /* crypto */,
 				B3E7B5881CC2AC0600A0062D /* PotatoCrypto.h */,
-				B3E7B5891CC2AC0600A0062D /* PotatoCrypto.m */,
+				B3E7B5891CC2AC0600A0062D /* PotatoCrypto.mm */,
 				134814211AA4EA7D00B7C361 /* Products */,
 				5A1DF310225486C100E981D3 /* Frameworks */,
 			);
@@ -458,7 +458,7 @@
 				5A1DF47F2254AB2000E981D3 /* blake256.cpp in Sources */,
 				5A1DF48E2254AB2000E981D3 /* Bip39Mnemonic.cpp in Sources */,
 				5A1DF46F2254AB2000E981D3 /* hasher.cpp in Sources */,
-				B3E7B58A1CC2AC0600A0062D /* PotatoCrypto.m in Sources */,
+				B3E7B58A1CC2AC0600A0062D /* PotatoCrypto.mm in Sources */,
 				5A1DF4922254AB2000E981D3 /* chinese_simplified.cpp in Sources */,
 				5A1DF4772254AB2000E981D3 /* rfc6979.cpp in Sources */,
 				5A1DF4872254AB2000E981D3 /* hmac_sha512.cpp in Sources */,
