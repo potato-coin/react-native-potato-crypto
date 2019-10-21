@@ -32,7 +32,7 @@
     "index.js",
     "package.json",
     "README.md",
-    "PotatoCrypto.podspec"
+    "react-native-potato-crypto.podspec"
   ],
   "license": "Apache-2.0",
   "licenseFilename": "LICENSE",
