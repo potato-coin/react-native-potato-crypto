@@ -41,23 +41,23 @@ public class PotatoCryptoModule extends ReactContextBaseJavaModule {
   public static final int MR_UNKNOWN_ERROR = 2;
   private static ThreadLocal<ByteBuffer> nativeBuffer = new ThreadLocal<>();
 
-    private final ReactApplicationContext reactContext;
+  private final ReactApplicationContext reactContext;
 
-    public PotatoCryptoModule(ReactApplicationContext reactContext) {
-        super(reactContext);
-        this.reactContext = reactContext;
-    }
+  public PotatoCryptoModule(ReactApplicationContext reactContext) {
+      super(reactContext);
+      this.reactContext = reactContext;
+  }
 
-    @Override
-    public String getName() {
-        return "PotatoCrypto";
-    }
+  @Override
+  public String getName() {
+      return "PotatoCrypto";
+  }
 
-    @ReactMethod
-    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
-        // TODO: Implement some actually useful functionality
-        callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
-    }
+  @ReactMethod
+  public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
+      // TODO: Implement some actually useful functionality
+      callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
+  }
 
   @Nonnull
   public static <T> T checkNotNull(T reference, String message) {
