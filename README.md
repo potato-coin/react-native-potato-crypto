@@ -27,7 +27,7 @@
 2. Append the following lines to `android/settings.gradle`:
   	```
   	include ':react-native-potato-crypto'
-  	project(':react-native-potato-crypto').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-rn-bip39/android')
+  	project(':react-native-potato-crypto').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-potato-crypto/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
